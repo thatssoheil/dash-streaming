@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.png">
+    <title>{{ content.get('title') }}</title>
+    <style>
+
+        body {
+            background-color: whitesmoke;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: flex-start;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-content: space-between;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+
+        .title, .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: flex-start;
+        }
+
+        hr.solid {
+            border-top: 3px solid #333333;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="title">
+            <p>movie title</p>
+            <p>movie year</p>
+        </div>
+        <div class="title">
+            <p>IMDB RATING</p>
+            <p>actual rating</p>
+        </div>
+    </div>
+    <div class="row media">
+        <div class="cover">
+            <img src="{{ content.get('cover') }}"
+                 alt="{{ content.get('title') }}">
+        </div>
+        <div class="trailer">
+            <video width="400" controls>
+                <source src="#" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="row">
+        <div class="info">
+            <p>movie synopsis</p>
+            <hr class="solid">
+            <p>Director {{ content.get('director') }}</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
