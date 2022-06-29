@@ -2,23 +2,38 @@ from flask import Flask
 from flask import render_template
 import sqlite3
 import ffmpeg_streaming
+from ffmpeg_streaming import Formats
+import json
 
 app = Flask(__name__)
 
-
 # with open('data.json', 'r') as f:
 #     repo = json.load(f)
-# columns = ['id', 'title', 'release_date', 'cover', 'director', 'rating', 'synopsis']
+# columns = ['id', 'title', 'release_date', 'cover', 'director', 'rating', 'synopsis', 'url']
 #
 # conn = sqlite3.connect('db.sqlite')
 # cursor = conn.cursor()
 # cursor.execute('CREATE TABLE if not exists Movie(id INTEGER, title TEXT, release_date TEXT, cover TEXT, '
-#                'director TEXT, rating TEXT, synopsis TEXT)')
+#                'director TEXT, rating TEXT, synopsis TEXT, url TEXT)')
 # for index in repo:
 #     values = tuple(repo.get(index).get(c) for c in columns)
-#     cursor.execute('INSERT INTO Movie values (?,?,?,?,?,?,?)', values)
+#     cursor.execute('INSERT INTO Movie values (?,?,?,?,?,?,?,?)', values)
 # conn.commit()
 # conn.close()
+
+# video = ffmpeg_streaming.input('./static/the-shawshank-redemption.mp4')
+# var = 'the-shawshank-redemption'
+#
+# dash = video.dash(Formats.h264())
+# dash.auto_generate_representations()
+# dash.output('/home/ubuntu/dash.mpd')
+
+
+# video = ffmpeg_streaming.input('/static/the-godfather.mp4')
+# var = 'the-godfather'
+# dash = video.dash(Formats.h264())
+# dash.auto_generate_representations()
+# dash.output('/static/' + var + '.mpd')
 
 def fetch(_id):
     conn = sqlite3.connect('db.sqlite')

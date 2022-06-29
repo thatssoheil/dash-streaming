@@ -6,7 +6,8 @@
     "cover": "/static/the-shawshank-redemption.jpg",
     "director": "Frank Darabont",
     "rating": "9.2",
-    "synopsis": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."
+    "synopsis": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+    "url": "/static/the-shawshank-redemption.mpd"
   },
   "2": {
     "id": "2",
@@ -15,7 +16,8 @@
     "cover": "/static/the-godfather.jpg",
     "director": "Francis Ford Coppola",
     "rating": "9.2",
-    "synopsis": "The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son."
+    "synopsis": "The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son.",
+    "url": "/static/the-godfather.mpd"
   },
   "3": {
     "id": "3",
@@ -24,7 +26,8 @@
     "cover": "/static/the-dark-knight.jpg",
     "director": "Christopher Nolan",
     "rating": "9.0",
-    "synopsis": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice."
+    "synopsis": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+    "url": "https://thatssoheil.arvanvod.com/EnRzwgzjYx/VB3Z870NzG/h_,144_200,240_400,360_800,480_1469,k.mp4.list/manifest.mpd"
   },
   "4": {
     "id": "4",
@@ -33,7 +36,8 @@
     "cover": "/static/the-godfather-part-ii.jpg",
     "director": "Francis Ford Coppola",
     "rating": "9.0",
-    "synopsis": "The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate."
+    "synopsis": "The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.",
+    "url": "https://thatssoheil.arvanvod.com/EnRzwgzjYx/5gZk6yDavO/h_,144_200,240_400,360_800,480_1500,k.mp4.list/manifest.mpd"
   },
   "5": {
     "id": "5",
@@ -42,7 +46,8 @@
     "cover": "/static/12-angry-man.jpg",
     "director": "Sidney Lumet",
     "rating": "8.9",
-    "synopsis": "The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict."
+    "synopsis": "The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict.",
+    "url": "https://thatssoheil.arvanvod.com/EnRzwgzjYx/VAqXQ4jB92/h_,144_200,240_400,360_800,480_1500,k.mp4.list/master.m3u8"
   },
   "6": {
     "id": "6",
@@ -51,6 +56,7 @@
     "cover": "/static/schindlers-list.jpg",
     "director": "Steven Spielberg",
     "rating": "8.9",
-    "synopsis": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis."
+    "synopsis": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+    "url": "https://thatssoheil.arvanvod.com/EnRzwgzjYx/pm5nP278Ae/h_,144_200,240_400,360_800,480_1458,k.mp4.list/master.m3u8"
   }
 }
