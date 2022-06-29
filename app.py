@@ -1,83 +1,52 @@
 from flask import Flask
-from flask import render_template, request, redirect, url_for
+from flask import render_template
+import sqlite3
+import ffmpeg_streaming
 
 app = Flask(__name__)
 
-repo = {
-    1: {
-        'index': '1',
-        'title': 'The Shawshank Redemption',
-        'year': '1994',
-        'cover': '/static/the-shawshank-redemption.jpg',
-        'director': 'Frank Darabont',
-        'rating': '9.3',
-        'synopsis': 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through '
-                    'acts of common decency. '
-    },
-    2: {
-        'index': '1',
-        'title': 'The Shawshank Redemption',
-        'year': '1994',
-        'cover': '/static/the-shawshank-redemption.jpg',
-        'director': 'Frank Darabont',
-        'rating': '9.3',
-        'synopsis': 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through '
-                    'acts of common decency. '
-    },
-    3: {
-        'index': '1',
-        'title': 'The Shawshank Redemption',
-        'year': '1994',
-        'cover': '/static/the-shawshank-redemption.jpg',
-        'director': 'Frank Darabont',
-        'rating': '9.3',
-        'synopsis': 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through '
-                    'acts of common decency. '
-    },
-    4: {
-        'index': '1',
-        'title': 'The Shawshank Redemption',
-        'year': '1994',
-        'cover': '/static/the-shawshank-redemption.jpg',
-        'director': 'Frank Darabont',
-        'rating': '9.3',
-        'synopsis': 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through '
-                    'acts of common decency. '
-    },
-    5: {
-        'index': '1',
-        'title': 'The Shawshank Redemption',
-        'year': '1994',
-        'cover': '/static/the-shawshank-redemption.jpg',
-        'director': 'Frank Darabont',
-        'rating': '9.3',
-        'synopsis': 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through '
-                    'acts of common decency. '
-    },
-    6: {
-        'index': '1',
-        'title': 'The Shawshank Redemption',
-        'year': '1994',
-        'cover': '/static/the-shawshank-redemption.jpg',
-        'director': 'Frank Darabont',
-        'rating': '9.3',
-        'synopsis': 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through '
-                    'acts of common decency. '
-    }
-}
+
+# with open('data.json', 'r') as f:
+#     repo = json.load(f)
+# columns = ['id', 'title', 'release_date', 'cover', 'director', 'rating', 'synopsis']
+#
+# conn = sqlite3.connect('db.sqlite')
+# cursor = conn.cursor()
+# cursor.execute('CREATE TABLE if not exists Movie(id INTEGER, title TEXT, release_date TEXT, cover TEXT, '
+#                'director TEXT, rating TEXT, synopsis TEXT)')
+# for index in repo:
+#     values = tuple(repo.get(index).get(c) for c in columns)
+#     cursor.execute('INSERT INTO Movie values (?,?,?,?,?,?,?)', values)
+# conn.commit()
+# conn.close()
+
+def fetch(_id):
+    conn = sqlite3.connect('db.sqlite')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM Movie WHERE id = ' + str(_id))
+    res = cursor.fetchall()
+    return res
+
+
+def fetch_all():
+    conn = sqlite3.connect('db.sqlite')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM Movie')
+    res = cursor.fetchall()
+    return res
 
 
 @app.route('/')
 @app.route('/index')
 def home():
-    data = repo
-    return render_template('index.html', content=data)
+    repo = fetch_all()
+    return render_template('index.html', content=repo)
 
 
-@app.route('/movies/<int:number>')
-def movie(number):
-    data = repo.get(number)
-    return render_template('movie.html', content=data)
+@app.route('/movies/<int:_id>')
+def movie(_id):
+    repo = fetch(_id)[0]
+    return render_template('movie.html', content=repo)
 
 
 if __name__ == '__main__':

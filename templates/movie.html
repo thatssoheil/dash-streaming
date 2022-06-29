@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="/static/favicon.png">
-    <title>{{ content.get('title') }}</title>
+    <title>{{ content[1] }}</title>
     <style>
 
         hr.solid {
@@ -50,14 +50,15 @@
             overflow: hidden;
         }
 
-        .media img {
+        .row img {
             object-fit: contain;
-            height: 550px;
+            height: 100%;
         }
 
-        .media video {
+        .row video {
             object-fit: contain;
-            height: 550px;
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
@@ -73,8 +74,8 @@
 <div class="container">
     <div class="row">
         <div class="title">
-            <p style="font-size: 48px">{{ content.get('title') }}</p>
-            <p>{{ content.get('year') }}</p>
+            <p style="font-size: 48px">{{ content[1] }}</p>
+            <p>{{ content[2] }}</p>
         </div>
         <div class="title"
              style="display: flex; flex-direction: column;
@@ -82,30 +83,27 @@
             <p>IMDB RATING</p>
             <p style="text-align: center">
                 <span style="color: goldenrod; font-size: 24px; font-weight: bold">
-                    {{ content.get('rating') }}
+                    {{ content[5] }}
                 </span>
                 /10
             </p>
         </div>
     </div>
-    <div class="row" style="justify-content: space-evenly">
-        <div class="media">
-            <img src="{{ content.get('cover') }}"
-                 alt="{{ content.get('title') }}">
-        </div>
-        <div class="media">
-            <video controls>
-                <source src="#" type="video/mp4">
-            </video>
-        </div>
+    <div class="row"
+         style="height: 500px; justify-content: center">
+        <img src="{{ content[3] }}"
+             alt="{{ content[1] }}">
+        <video controls>
+            <source src="#" type="video/mp4">
+        </video>
     </div>
     <div class="row">
         <div class="info">
-            <p>{{ content.get('synopsis') }}</p>
+            <p>{{ content[6] }}</p>
             <hr class="solid">
             <p>Director
                 <span style="color: goldenrod">
-                {{ content.get('director') }}
+                {{ content[4] }}
                 </span>
             </p>
         </div>

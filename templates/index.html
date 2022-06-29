@@ -58,7 +58,7 @@
         }
 
         .cover {
-            width: 330px;
+            height: 240px;
             border: 5px solid #333333;
             border-radius: 4px;
             object-fit: contain;
@@ -106,17 +106,17 @@
     <div class="row">
         {% for movie in content %}
             <div class="wrapper">
-                <a href="/movies/{{ content.get(movie).get('index') }}">
+                <a href="/movies/{{ movie[0] }}">
                     <img class="cover"
-                         src="{{ content.get(movie).get('cover') }}"
-                         alt="{{ content.get(movie).get('title') }}">
+                         src="{{ movie[3] }}"
+                         alt="{{ movie[1] }}">
                 </a>
                 <div class="movie-bottom" style="margin: 10px 5px">
-                    <a href="/movies/{{ content.get(movie).get('index') }}"
+                    <a href="/movies/{{ movie[0] }}"
                        class="movie-title">
-                        {{ content.get(movie).get('title') }}
+                        {{ movie[1] }}
                     </a>
-                    <div class="movie-year">{{ content.get(movie).get('year') }}</div>
+                    <div class="movie-year">{{ movie[2] }}</div>
                 </div>
             </div>
         {% endfor %}
