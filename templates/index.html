@@ -15,28 +15,28 @@
             display: flex;
             flex-direction: row;
             justify-content: center;
-            align-items: space-evenly;
+            align-items: center;
             flex-wrap: wrap;
-            padding-left: 100px;
-            padding-right: 100px;
+            padding: 10px 180px;
         }
 
         .wrapper {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: space-evenly;
+            align-items: flex-start;
             margin: 15px 30px;
         }
 
         .header {
             width: auto;
-            height: 80px;
+            height: 60px;
             background-color: goldenrod;
             display: flex;
             justify-content: center;
-            align-items: flex-end;
+            align-items: center;
             overflow: hidden;
+            padding: 0 180px;
         }
 
         .header-wrapper {
@@ -58,7 +58,7 @@
         }
 
         .cover {
-            width: 230px;
+            width: 330px;
             border: 5px solid #333333;
             border-radius: 4px;
             object-fit: contain;
@@ -90,6 +90,14 @@
 </head>
 <body>
 <div class="container">
+    <div class="header"
+         style="background-color: #333333; justify-content: flex-start">
+        <a href="/">
+            <img src="/static/logo.png"
+                 alt="imdb-logo"
+                 style="object-fit: contain; height: 30px">
+        </a>
+    </div>
     <div class="header">
         <div class="header-wrapper">
             <p>IMDB Top Movies</p>
