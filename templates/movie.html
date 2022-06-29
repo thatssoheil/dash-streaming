@@ -6,6 +6,19 @@
     <title>{{ content.get('title') }}</title>
     <style>
 
+        hr.solid {
+            border-top: 1px solid darkgray;
+            width: -webkit-fill-available;
+        }
+
+        p {
+            font-family: sans-serif;
+            text-transform: capitalize;
+            color: #333333;
+            margin: 2px;
+            font-size: 18px;
+        }
+
         body {
             background-color: whitesmoke;
             margin: 0;
@@ -15,59 +28,84 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-content: flex-start;
+            align-items: flex-start;
+            padding-left: 180px;
+            padding-right: 180px;
         }
 
         .row {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            align-content: space-between;
-            padding-left: 100px;
-            padding-right: 100px;
+            align-items: center;
+            width: -webkit-fill-available;
+            margin: 15px 0;
         }
 
         .title, .info {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-content: flex-start;
+            align-items: flex-start;
+            overflow: hidden;
         }
 
-        hr.solid {
-            border-top: 3px solid #333333;
+        .media img {
+            object-fit: contain;
+            height: 550px;
         }
 
+        .media video {
+            object-fit: contain;
+            height: 550px;
+        }
     </style>
 </head>
 <body>
+<div class="container"
+     style="background-color: #333333; height: 60px">
+    <img src="/static/logo.png"
+         alt="imdb-logo"
+         style="object-fit: contain; height: 30px">
+</div>
 <div class="container">
     <div class="row">
         <div class="title">
-            <p>movie title</p>
-            <p>movie year</p>
+            <p style="font-size: 48px">{{ content.get('title') }}</p>
+            <p>{{ content.get('year') }}</p>
         </div>
-        <div class="title">
+        <div class="title"
+             style="display: flex; flex-direction: column;
+             justify-content: center; align-items: center">
             <p>IMDB RATING</p>
-            <p>actual rating</p>
+            <p style="text-align: center">
+                <span style="color: goldenrod; font-size: 24px; font-weight: bold">
+                    {{ content.get('rating') }}
+                </span>
+                /10
+            </p>
         </div>
     </div>
-    <div class="row media">
-        <div class="cover">
+    <div class="row" style="justify-content: space-evenly">
+        <div class="media">
             <img src="{{ content.get('cover') }}"
                  alt="{{ content.get('title') }}">
         </div>
-        <div class="trailer">
-            <video width="400" controls>
+        <div class="media">
+            <video controls>
                 <source src="#" type="video/mp4">
             </video>
         </div>
     </div>
     <div class="row">
         <div class="info">
-            <p>movie synopsis</p>
+            <p>{{ content.get('synopsis') }}</p>
             <hr class="solid">
-            <p>Director {{ content.get('director') }}</p>
+            <p>Director
+                <span style="color: goldenrod">
+                {{ content.get('director') }}
+                </span>
+            </p>
         </div>
     </div>
 </div>
