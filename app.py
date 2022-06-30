@@ -21,19 +21,6 @@ app = Flask(__name__)
 # conn.commit()
 # conn.close()
 
-# video = ffmpeg_streaming.input('./static/the-shawshank-redemption.mp4')
-# var = 'the-shawshank-redemption'
-#
-# dash = video.dash(Formats.h264())
-# dash.auto_generate_representations()
-# dash.output('/home/ubuntu/dash.mpd')
-
-
-# video = ffmpeg_streaming.input('/static/the-godfather.mp4')
-# var = 'the-godfather'
-# dash = video.dash(Formats.h264())
-# dash.auto_generate_representations()
-# dash.output('/static/' + var + '.mpd')
 
 def fetch(_id):
     conn = sqlite3.connect('db.sqlite')
